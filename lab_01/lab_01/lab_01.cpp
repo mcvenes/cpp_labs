@@ -6,8 +6,6 @@
 
 int main()
 {
-	std::cout << "Hello World!\n";
-
 	MyStack<std::string> stack(3);
 
 	std::cout << "Trying to insert 5 elements to stack with capacity " << stack.capacity() << std::endl;
