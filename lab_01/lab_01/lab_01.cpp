@@ -8,6 +8,8 @@
 
 int main()
 {
+	// ---- лаб.1 - часть 1 ------------------------
+
 	MyStack<std::string> stack(3);
 
 	std::cout << "Trying to insert 5 elements to stack with capacity " << stack.capacity() << std::endl;
@@ -40,6 +42,9 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 	}
+
+
+	// ---- лаб.1 - часть 2 ------------------------
 
 	MyStack<Person> personStack = PersonKeeper::instance().readPersons("C:\\1\\test.txt", 100);
 

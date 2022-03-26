@@ -8,16 +8,19 @@ PersonKeeper::readPersons(const std::string& filePath, int maxSize) const
 
 	MyStack<Person> stack(maxSize);
 
+	// открываем файл для чтения
 	std::fstream stream;
 	stream.open(filePath, std::ios_base::in);
 	if (!stream.is_open())
 	{
+		// аварийно завершаем работу программы, если не удалось открыть файл для чтения
 		std::cerr << "ERROR: read file";
 		exit(1);
 	}
 
 	stream.exceptions(std::ios_base::eofbit | std::ios_base::failbit | std::ios_base::eofbit);
 
+	// пытаемся читать стрим (файл) до тех пор, пока он не завершится или не заполнится стэк
 	while (true && !stack.isFull())
 	{
 		std::string firstName;
@@ -34,10 +37,12 @@ PersonKeeper::readPersons(const std::string& filePath, int maxSize) const
 		}
 		catch (...)
 		{
+			// поймали исключение стрима, считаем что файл прочтён до конца
 			std::cout << "End of file\n";
 			needBreak = true;
 		}
 
+		//сохраняем результат в стэк
 		if (!firstName.empty() && !lastName.empty() && !middleName.empty())
 		{
 			Person p;
@@ -66,6 +71,7 @@ PersonKeeper::writePersons(MyStack<Person> stack, std::fstream& stream)
 {
 	if (!stream.is_open())
 	{
+		// если стрим не открыт, то завершаем работу метода
 		std::cerr << "Stream is close!";
 		return;
 	}
@@ -79,7 +85,8 @@ PersonKeeper::writePersons(MyStack<Person> stack, std::fstream& stream)
 		}
 		catch (...)
 		{
-			std::cerr << "!!!!!";
+			// по какой-то причине не смогли продолжить писать в стрим, завершаем работу
+			std::cerr << "Unknown stream error";
 			return;
 		}
 	}
