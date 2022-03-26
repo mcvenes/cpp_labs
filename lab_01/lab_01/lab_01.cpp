@@ -2,10 +2,14 @@
 #include <string>
 
 #include "MyStack.h"
+#include "Person.h"
+#include "PersonKeeper.h"
 
 
 int main()
 {
+	// ---- лаб.1 - часть 1 ------------------------
+
 	MyStack<std::string> stack(3);
 
 	std::cout << "Trying to insert 5 elements to stack with capacity " << stack.capacity() << std::endl;
@@ -38,6 +42,24 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 	}
+
+
+	// ---- лаб.1 - часть 2 ------------------------
+
+	MyStack<Person> personStack = PersonKeeper::instance().readPersons("C:\\1\\test.txt", 100);
+
+	std::fstream outStream;
+	outStream.open("C:\\1\\out.txt", std::ios_base::out);
+	if (!outStream.is_open())
+	{
+		std::cerr << "Failed to open out stream\n";
+		return 1;
+	}
+
+	std::cout << "Trying to write persons to file\n";
+	PersonKeeper::instance().writePersons(personStack, outStream);
+
+	std::cout << "Done" << std::endl;
 
 	return 0;
 }

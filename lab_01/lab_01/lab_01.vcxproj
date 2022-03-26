@@ -141,10 +141,14 @@
   <ItemGroup>
     <ClCompile Include="EStack.cpp" />
     <ClCompile Include="lab_01.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="PersonKeeper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EStack.h" />
     <ClInclude Include="MyStack.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="PersonKeeper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
