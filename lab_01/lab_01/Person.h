@@ -3,6 +3,7 @@
 #include <string>
 
 
+// класс для хранения ФИО персон
 class Person
 {
 private:
