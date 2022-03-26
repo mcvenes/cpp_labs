@@ -2,9 +2,11 @@
 
 
 MyStack<Person>
-PersonKeeper::readPersons(const std::string& filePath) const
+PersonKeeper::readPersons(const std::string& filePath, int maxSize) const
 {
-	MyStack<Person> stack(100);
+	std::cout << "Stack max size:" << maxSize << std::endl;
+
+	MyStack<Person> stack(maxSize);
 
 	std::fstream stream;
 	stream.open(filePath, std::ios_base::in);

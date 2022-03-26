@@ -41,7 +41,7 @@ int main()
 		}
 	}
 
-	MyStack<Person> personStack = PersonKeeper::instance().readPersons("C:\\1\\test.txt");
+	MyStack<Person> personStack = PersonKeeper::instance().readPersons("C:\\1\\test.txt", 100);
 
 	std::fstream outStream;
 	outStream.open("C:\\1\\out.txt", std::ios_base::out);

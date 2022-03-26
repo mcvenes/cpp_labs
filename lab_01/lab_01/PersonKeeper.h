@@ -20,7 +20,7 @@ public:
 
 	// метод чтения персон из файла filePath
 	// возвращает стэк объектов класса Person
-	MyStack<Person> readPersons(const std::string& filePath) const;
+	MyStack<Person> readPersons(const std::string& filePath, int maxSize) const;
 
 	// метод записи стэка персон в стрим
 	// stack передаем как копию, т.к. в ходе работы оригинальный объект не должен меняться
