@@ -17,7 +17,7 @@ public:
 
 	// � ������������ ����������� ������
 	~MyStack() {
-		delete[] data;
+		// do nothing
 	}
 
 	bool isFull() const
