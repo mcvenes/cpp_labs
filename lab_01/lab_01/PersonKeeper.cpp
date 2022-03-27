@@ -14,7 +14,7 @@ PersonKeeper::readPersons(const std::string& filePath, int maxSize) const
 	if (!stream.is_open())
 	{
 		// �������� ��������� ������ ���������, ���� �� ������� ������� ���� ��� ������
-		std::cerr << "ERROR: read file";
+		std::cerr << "Failed to open input file: " << filePath << std::endl;
 		exit(1);
 	}
 

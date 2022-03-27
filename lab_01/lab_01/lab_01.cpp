@@ -6,8 +6,19 @@
 #include "PersonKeeper.h"
 
 
-int main()
+int main(int argc, char** argv)
 {
+    // Проверяем, что кол-во аргументов равно 3: имя программы + путь к файлу для чтения + путь к файлу с результатом
+    if (argc != 3)
+    {
+        std::cerr << "Usage: lab01.exe <path to input file> <path to output file>" << std::endl;
+        std::cerr << "For example, lab01.exe C:\\1\\test.txt C:\\1\\result.txt" << std::endl;
+        return 1;
+    }
+
+    const std::string inputFilePath = argv[1];
+    const std::string outputFilePath = argv[2];
+
 	// ---- лаб.1 - часть 1 ------------------------
 
 	MyStack<std::string> stack(3);
@@ -46,13 +57,13 @@ int main()
 
 	// ---- лаб.1 - часть 2 ------------------------
 
-	MyStack<Person> personStack = PersonKeeper::instance().readPersons("C:\\1\\test.txt", 100);
+	MyStack<Person> personStack = PersonKeeper::instance().readPersons(inputFilePath, 100);
 
 	std::fstream outStream;
-	outStream.open("C:\\1\\out.txt", std::ios_base::out);
+	outStream.open(outputFilePath, std::ios_base::out);
 	if (!outStream.is_open())
 	{
-		std::cerr << "Failed to open out stream\n";
+		std::cerr << "Failed to open output file " << outputFilePath << std::endl;
 		return 1;
 	}
 
