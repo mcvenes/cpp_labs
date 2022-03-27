@@ -53,4 +53,4 @@ void
 Person::setFirstName(const std::string &fn)
 {
     first_name = fn;
-};
+}
