@@ -21,7 +21,7 @@ PersonKeeper::readPersons(const std::string& filePath, int maxSize) const
 	stream.exceptions(std::ios_base::eofbit | std::ios_base::failbit | std::ios_base::badbit);
 
 	// �������� ������ ����� (����) �� ��� ���, ���� �� �� ���������� ��� �� ���������� ����
-	while (true && !stack.isFull())
+	while (!stack.isFull())
 	{
 		std::string firstName;
 		std::string middleName;
